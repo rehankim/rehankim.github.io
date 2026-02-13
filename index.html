@@ -3,168 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- NAMA WEB PUBLIK -->
-<title>Portofolio Muhamad Reihan Hakim</title>
-
-<!-- SEO GOOGLE -->
-<meta name="description" content="Portofolio Muhamad Reihan Hakim - Web Developer & Network Engineer">
-<meta name="author" content="Muhamad Reihan Hakim">
-<meta name="keywords" content="Muhamad Reihan Hakim, Portofolio, Web Developer, Networking, Student">
+<title>RehanKim Portfolio</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-body {
-    background: #0f172a;
-    color: white;
-    scroll-behavior: smooth;
+/* BACKGROUND GRID */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:radial-gradient(circle,#2563eb22 1px,transparent 1px);
+background-size:40px 40px;
+animation:moveBg 20s linear infinite;
+z-index:-2;
 }
 
-/* NAVBAR */
-nav {
-    position: sticky;
-    top: 0;
-    background: #020617;
-    padding: 15px;
-    text-align: center;
-    z-index: 999;
+@keyframes moveBg{
+from{transform:translate(0,0);}
+to{transform:translate(-200px,-200px);}
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
+/* NAV */
+nav{
+position:sticky;
+top:0;
+background:#020617;
+padding:15px;
+text-align:center;
+border-bottom:1px solid #1e293b;
 }
 
-nav a:hover {
-    color: #60a5fa;
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+nav a:hover{
+color:#60a5fa;
+text-shadow:0 0 10px #60a5fa;
 }
 
-header img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid white;
-    margin-bottom: 15px;
+/* HEADER + AURA ENERGY */
+header{
+position:relative;
+text-align:center;
+padding:60px 20px;
+overflow:hidden;
+background:radial-gradient(circle,#1e3a8a,#020617);
+}
+
+/* AURA GERAK */
+header::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:conic-gradient(#2563eb,#60a5fa,#1e3a8a,#2563eb);
+animation:spin 8s linear infinite;
+opacity:.25;
+top:-50%;
+left:-50%;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+header *{
+position:relative;
+z-index:2;
+}
+
+header img{
+width:150px;height:150px;border-radius:50%;
+border:4px solid white;cursor:pointer;transition:.3s;
+}
+
+header img:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px #60a5fa;
 }
 
 /* SECTION */
-section {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: auto;
+section{padding:60px 20px;max-width:900px;margin:auto;}
+
+.fade{opacity:0;transform:translateY(40px);transition:.8s;}
+.fade.show{opacity:1;transform:translateY(0);}
+
+h2{margin-bottom:20px;border-left:5px solid #2563eb;padding-left:10px;}
+
+.card{
+background:#1e293b;padding:20px;margin:10px 0;border-radius:12px;transition:.3s;
 }
 
-h2 {
-    margin-bottom: 20px;
-    border-left: 5px solid #2563eb;
-    padding-left: 10px;
+.card:hover{
+transform:translateY(-5px) scale(1.02);
+box-shadow:0 0 20px #60a5fa55;
+background:#334155;
 }
 
-.card {
-    background: #1e293b;
-    padding: 20px;
-    margin: 10px 0;
-    border-radius: 12px;
-    transition: 0.3s;
+/* SKILL BAR */
+.skill{margin:15px 0;}
+.skill-name{margin-bottom:5px;}
+.bar{background:#020617;border-radius:10px;overflow:hidden;height:18px;}
+.fill{
+height:100%;
+width:0;
+background:linear-gradient(90deg,#2563eb,#60a5fa);
+transition:2s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    background: #334155;
+/* BACK TO TOP */
+#topBtn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#2563eb;
+color:white;
+border:none;
+padding:10px 14px;
+border-radius:8px;
+cursor:pointer;
+display:none;
+box-shadow:0 0 10px #60a5fa;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #020617;
-    opacity: 0.8;
+#topBtn:hover{background:#1e40af;}
+
+/* PARTICLE */
+.ball{
+position:fixed;width:8px;height:8px;background:#60a5fa;border-radius:50%;
+opacity:.6;animation:float linear infinite;
 }
 
-a {
-    color: #60a5fa;
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
 }
+
+footer{text-align:center;padding:20px;background:#020617;margin-top:40px;}
 </style>
 </head>
 
 <body>
 
-<!-- MENU -->
 <nav>
-    <a href="#tentang">Tentang</a>
-    <a href="#skill">Skill</a>
-    <a href="#project">Project</a>
-    <a href="#kontak">Kontak</a>
+<a href="#tentang">Tentang</a>
+<a href="#skill">Skill</a>
+<a href="#project">Project</a>
+<a href="#kontak">Kontak</a>
 </nav>
 
-<!-- HEADER -->
 <header>
-    <!-- Simpan foto di folder sama dengan index.html -->
-    <img src="foto.jpg" alt="Foto Profil">
-    <h1>Muhamad Reihan Hakim</h1>
-    <p>Web Developer | Network Engineer | Student</p>
+<img src="fp.png">
+<h1>Muhamad Reihan Hakim</h1>
+<p>Network Engineer | Student</p>
+<br>
+<a href="cv.pdf" download style="color:#60a5fa;">⬇ Download CV</a>
 </header>
 
-<!-- TENTANG -->
-<section id="tentang">
-    <h2>Tentang Saya</h2>
-    <div class="card">
-        <p>
-            Saya tertarik di bidang IT terutama jaringan, web development, dan teknologi.
-            Saya suka belajar hal baru dan membuat project yang bermanfaat.
-        </p>
-    </div>
+<section id="tentang" class="fade">
+<h2>Tentang Saya</h2>
+<div class="card">
+Saya tertarik di bidang IT terutama jaringan, web, dan teknologi. Suka belajar hal baru.
+</div>
 </section>
 
-<!-- SKILL -->
-<section id="skill">
-    <h2>Skill</h2>
-    <div class="card">HTML</div>
-    <div class="card">Networking (Cisco, Mikrotik)</div>
-    <div class="card">Linux Server (Debian, Apache)</div>
+<section id="skill" class="fade">
+<h2>Skill</h2>
+
+<div class="skill">
+<div class="skill-name">HTML</div>
+<div class="bar"><div class="fill" data-width="90%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">Networking</div>
+<div class="bar"><div class="fill" data-width="85%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-name">Linux Server</div>
+<div class="bar"><div class="fill" data-width="75%"></div></div>
+</div>
+
 </section>
 
-<!-- PROJECT -->
-<section id="project">
-    <h2>Project</h2>
-    <div class="card">
-        <h3>Website Sekolah</h3>
-        <p>Membuat website sederhana menggunakan HTML.</p>
-    </div>
-    <div class="card">
-        <h3>Simulasi Jaringan Kantor</h3>
-        <p>Membuat topologi jaringan menggunakan Cisco Packet Tracer.</p>
-    </div>
+<section id="project" class="fade">
+<h2>Project</h2>
+
+<div class="card">
+<h3>Website Sekolah</h3>
+Membuat website HTML + animasi.
+</div>
+
+<div class="card">
+<h3>Simulasi Jaringan Kantor</h3>
+Topologi Cisco Packet Tracer.
+</div>
 </section>
 
-<!-- KONTAK -->
-<section id="kontak">
-    <h2>Kontak</h2>
-    <div class="card">
-        <p>Email: rehankim237@gmail.com</p>
-        <p>WhatsApp: 0895370514071</p>
-        <p>GitHub: <a href="#">github.com/username</a></p>
-    </div>
+<section id="kontak" class="fade">
+<h2>Kontak</h2>
+<div class="card">
+Email: rehankim237@gmail.com <br>
+WhatsApp: 0895370514071 <br>
+GitHub: github.com/rehankim
+</div>
 </section>
 
 <footer>
-    <p>© 2026 Portofolio Muhamad Reihan Hakim</p>
+© 2026 RehanKim Portfolio
 </footer>
+
+<button id="topBtn">⬆</button>
+
+<script>
+const fades=document.querySelectorAll('.fade');
+const fills=document.querySelectorAll('.fill');
+
+function show(){
+let trigger=window.innerHeight*0.85;
+fades.forEach(el=>{
+if(el.getBoundingClientRect().top<trigger){el.classList.add('show');}
+});
+fills.forEach(bar=>{
+if(bar.getBoundingClientRect().top<trigger){bar.style.width=bar.dataset.width;}
+});
+}
+window.addEventListener('scroll',show);
+show();
+
+const topBtn=document.getElementById('topBtn');
+window.onscroll=()=>{
+topBtn.style.display=document.documentElement.scrollTop>300?'block':'none';
+};
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+for(let i=0;i<20;i++){
+let b=document.createElement('div');
+b.className='ball';
+b.style.left=Math.random()*100+'vw';
+b.style.animationDuration=(5+Math.random()*5)+'s';
+document.body.appendChild(b);
+}
+</script>
 
 </body>
 </html>
